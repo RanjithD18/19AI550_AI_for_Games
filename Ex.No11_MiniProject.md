@@ -1,6 +1,7 @@
 
 # **Cosmic Heat: A 2D Space Shooter Game**
-
+### DATE: 25-10-2024
+### REGISTER NUMBER : 212221240044
 ## **Aim**
 The aim of this project is to develop a 2D space shooter game, **Cosmic Heat**, using Python and Pygame. This game combines classic arcade shooting mechanics with modern AI techniques to create an engaging gameplay experience. Players control a spaceship using either the keyboard or a joystick to fight through waves of enemies and challenging boss battles. The AI techniques are implemented to enhance enemy behavior and make each encounter dynamic and challenging.
 
