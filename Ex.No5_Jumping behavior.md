@@ -1,6 +1,5 @@
 # Ex.No: 5  Implementation of Jumping behavior 
-### DATE:23/08/2024                                                                      
-### REGISTER NUMBER : Ranjith D
+### DATE:23/08/2024                
 ### AIM: 
 To write a python program to simulate Jumbing behavior. 
 ### Algorithm:
