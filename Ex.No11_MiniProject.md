@@ -168,20 +168,6 @@ while running:
                     bullet_counter -= 1
                 is_shooting = True
 
-            elif event.key == pygame.K_ESCAPE:
-                sys.exit(0)
-            elif event.key == pygame.K_p or event.key == pygame.K_PAUSE:
-                paused = not paused
-            elif not paused:
-                if event.key == pygame.K_LEFT:
-                    player.move_left()
-                elif event.key == pygame.K_RIGHT:
-                    player.move_right()
-                elif event.key == pygame.K_UP:
-                    player.move_up()
-                elif event.key == pygame.K_DOWN:
-                    player.move_down()
-
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE and player.original_image is not None:
                 player.image = player.original_image.copy()
@@ -195,19 +181,6 @@ while running:
                     player.stop_up()
                 elif event.key == pygame.K_DOWN:
                     player.stop_down()
-
-        elif event.type == pygame.JOYBUTTONDOWN:
-            if event.button == 0 and not paused:
-                is_shooting = True
-                if bullet_counter > 0:
-                    bullet = Bullet(player.rect.centerx, player.rect.top)
-                    bullets.add(bullet)
-                    bullet_counter -= 1
-            elif event.button == 7:
-                paused = not paused
-        elif event.type == pygame.JOYBUTTONUP:
-            if event.button == 0 and player.original_image is not None:
-                is_shooting = False
 
     if pygame.time.get_ticks() - last_shot_time > SHOOT_DELAY and is_shooting and not paused:
         if bullet_counter > 0:
@@ -342,15 +315,6 @@ while running:
             player_life -= 1
             black_hole_object.sound_effect.play()
 
-        if score >= 5000:
-            meteor_object.speed = 4
-        if score >= 10000:
-            meteor_object.speed = 4
-        if score >= 15000:
-            meteor_object.speed = 6
-        if score >= 20000:
-            meteor_object.speed = 8
-
     for bullet_refill in bullet_refill_group:
 
         bullet_refill.update()
@@ -408,15 +372,6 @@ while running:
                     double_refill_img,
                 )
                 double_refill_group.add(double_refill)
-
-        if score >= 3000:
-            meteor_object.speed = 4
-        if score >= 10000:
-            meteor_object.speed = 6
-        if score >= 15000:
-            meteor_object.speed = 8
-        if score >= 20000:
-            meteor_object.speed = 10
 
     for enemy_object in enemy1_group:
         enemy_object.update(enemy1_group)
@@ -502,22 +457,6 @@ while running:
 
     player_image_copy = player.image.copy()
     screen.blit(player_image_copy, player.rect)
-
-    for explosion in explosions:
-        explosion.update()
-        screen.blit(explosion.image, explosion.rect)
-
-    for explosion2 in explosions2:
-        explosion2.update()
-        screen.blit(explosion2.image, explosion2.rect)
-
-    for bullet in bullets:
-        bullet.update()
-        screen.blit(bullet.image, bullet.rect)
-
-        if bullet.rect.bottom < 0:
-            bullet.kill()
-            bullet_counter -= 1
 
     player_life_surface = pygame.Surface((200, 25), pygame.SRCALPHA, 32)
     player_life_surface.set_alpha(216)
