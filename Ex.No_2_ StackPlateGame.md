@@ -1,6 +1,5 @@
 # Ex.No: 2 Implementation of Stack Plate game using Queue 
-### DATE: 08/09/2024
-### NAME: Ranjith D
+### DATE: 09/08/2024
 ### REGISTER NUMBER : 212221240044
 ### AIM: 
 To write a python program to simulate the process of stacking plates.
